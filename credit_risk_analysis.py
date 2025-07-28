@@ -14,7 +14,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 
-xlfile = pd.ExcelFile('/content/drive/MyDrive/Datasets/credit-risk.xlsx')
+xlfile = pd.ExcelFile('/credit-risk.xlsx')
 
 sheets=[]
 for name in xlfile.sheet_names:
@@ -35,7 +35,7 @@ credits_df.head()
 credits_df.dropna(inplace=True)
 credits_df.info()
 
-credits_df.to_csv('/content/drive/MyDrive/Datasets/credit-risk.tar.gz',index=False)
+credits_df.to_csv('/credit-risk.tar.gz',index=False)
 
 # !pip install pingouin
 # !pip install pydeck
@@ -45,8 +45,8 @@ import plotly.express as px, pydeck as pdk, pingouin as pg
 import ipywidgets as widgets, scipy.stats as stats,re
 from sklearn.preprocessing import OneHotEncoder
 
-countries_df = pd.read_csv('/content/drive/MyDrive/Datasets/countries.tar.gz',compression='gzip')[['name','alpha-2']]
-cities_df = pd.read_csv('/content/drive/MyDrive/Datasets/world-cities.tar.gz',low_memory=False,compression='gzip')[['City','Country','Latitude','Longitude']]
+countries_df = pd.read_csv('/countries.tar.gz',compression='gzip')[['name','alpha-2']]
+cities_df = pd.read_csv('/world-cities.tar.txt',low_memory=False,compression='gzip')[['City','Country','Latitude','Longitude']]
 
 cities_df.head()
 
