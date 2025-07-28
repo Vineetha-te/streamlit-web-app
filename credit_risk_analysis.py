@@ -14,7 +14,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
 
-xlfile = pd.ExcelFile('/credit-risk.xlsx')
+xlfile = pd.ExcelFile('credit-risk.xlsx')
 
 sheets=[]
 for name in xlfile.sheet_names:
