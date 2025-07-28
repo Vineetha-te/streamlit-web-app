@@ -67,18 +67,23 @@ company_locations['Longitude']+= np.random.normal(0,0.03,len(company_locations))
 
 
 #visualizing using widget
+!pip install streamlit
 # from IPython.display import display
-# !jupyter nbextension enable --py widgetsnbextension
+
+import streamlit as st
+
+st.set_page_config(page_title='Credit Risk Analysis',layout='wide')
+st.title('Credit Risk Analysis')
+st.markdown("Company Locations Visualization")
+
+vis_widget = st.radio('Select the visualization type',['Density Mapbox','Hexagon Layer'])
 
 
-
-
-
-visualize_widget = widgets.Select(options=['Density Mapbox','Hexagon Layer'], Description='Map',Disabled=False,layout=widgets.Layout())
-
-if visualize_widget=='Density Mapbox':
-   fig = px.density_mapbox(company_locations,lat='Latitude',lon='Longitude',radius=1.2,center=dict(lat=46.2,lon=8.2),mapbox_style='open-street-map',zoom=3,hover_name='Company name')
-   fig.show()
+if vis_widget=='Density Mapbox':
+  map_box_token = 'pk.eyJ1IjoiZGVtb3VzZXIiLCJhIjoiY2t2M2Vjc2t3MDFuejJ2cG01aG1qZ2RzZyJ9.HhNwH4W5cZp6Iu3t2kF1QQ'
+  px.set_mapbox_access_token(map_box_token)
+  fig = px.density_mapbox(company_locations,lat='Latitude',lon='Longitude',radius=1.2,center=dict(lat=46.2,lon=8.2),mapbox_style='open-street-map',zoom=3,hover_name='Company name')
+  st.plotly_chart(fig,use_container_width=True)
 else:
    layer = pdk.Layer('HexagonLayer',
                     company_locations,
@@ -93,8 +98,6 @@ else:
                     )
    view_state = pdk.ViewState(longitude=7,latitude=43,zoom=4,pitch=40.5,bearing=16)
    fig = pdk.Deck(layers=layer,initial_view_state=view_state)
-   fig.show()
+   st.pydeck_chart(fig)
 
-
-
-display(visualize_widget)
+!streamlit run '/content/drive/MyDrive/Colab Notebooks/credit_risk_analysis.py' 
