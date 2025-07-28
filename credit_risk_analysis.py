@@ -67,7 +67,7 @@ company_locations['Latitude']+= np.random.normal(0,0.03,len(company_locations))
 company_locations['Longitude']+= np.random.normal(0,0.03,len(company_locations))
 
 #visualizing using widget
-# !pip install streamlit
+!pip install streamlit
 # from IPython.display import display
 # !jupyter nbextension enable --py widgetsnbextension
 import streamlit as st
@@ -78,8 +78,6 @@ st.markdown("Company Locations Visualization")
 
 vis_widget = st.radio('Select the visualization type',['Density Mapbox','Hexagon Layer'])
 
-
-# visualize_widget = widgets.Select(options=['Density Mapbox','Hexagon Layer'], Description='Map',Disabled=False,layout=widgets.Layout())
 
 if vis_widget=='Density Mapbox':
   map_box_token = 'pk.eyJ1IjoiZGVtb3VzZXIiLCJhIjoiY2t2M2Vjc2t3MDFuejJ2cG01aG1qZ2RzZyJ9.HhNwH4W5cZp6Iu3t2kF1QQ'
@@ -102,4 +100,4 @@ else:
    fig = pdk.Deck(layers=layer,initial_view_state=view_state)
    st.pydeck_chart(fig)
 
-!streamlit run Credit-risk-analysis.py
+!streamlit run credit_risk_analysis.py
