@@ -100,4 +100,3 @@ else:
    fig = pdk.Deck(layers=layer,initial_view_state=view_state)
    st.pydeck_chart(fig)
 
-streamlit run credit_risk_analysis.py
