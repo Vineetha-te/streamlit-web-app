@@ -37,9 +37,9 @@ credits_df.info()
 
 credits_df.to_csv('/content/drive/MyDrive/Datasets/credit-risk.tar.gz',index=False)
 
-!pip install pingouin
-!pip install pydeck
-!pip install utils
+# !pip install pingouin
+# !pip install pydeck
+# !pip install utils
 
 import plotly.express as px, pydeck as pdk, pingouin as pg
 import ipywidgets as widgets, scipy.stats as stats,re
@@ -67,7 +67,7 @@ company_locations['Latitude']+= np.random.normal(0,0.03,len(company_locations))
 company_locations['Longitude']+= np.random.normal(0,0.03,len(company_locations))
 
 #visualizing using widget
-!pip install streamlit
+# !pip install streamlit
 # from IPython.display import display
 # !jupyter nbextension enable --py widgetsnbextension
 import streamlit as st
