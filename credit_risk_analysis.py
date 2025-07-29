@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
 warnings.filterwarnings('ignore')
+import tempfile
+import os
 
 xlfile = pd.ExcelFile('credit-risk.xlsx')
 
@@ -34,8 +36,8 @@ credits_df.head()
 
 credits_df.dropna(inplace=True)
 credits_df.info()
-
-credits_df.to_csv('/credit-risk.csv',index=False)
+with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as tmp:
+credits_df.to_csv(tmp.name,index=False)
 
 
 
@@ -43,8 +45,8 @@ import plotly.express as px, pydeck as pdk, pingouin as pg
 import ipywidgets as widgets, scipy.stats as stats,re
 from sklearn.preprocessing import OneHotEncoder
 
-countries_df = pd.read_csv('/countries.csv')[['name','alpha-2']]
-cities_df = pd.read_csv('/world-cities.tar.txt',low_memory=False)[['City','Country','Latitude','Longitude']]
+countries_df = pd.read_csv('/countries.tar.gz')[['name','alpha-2']]
+cities_df = pd.read_csv('/world-cities-file.txt',low_memory=False)[['City','Country','Latitude','Longitude']]
 
 cities_df.head()
 
