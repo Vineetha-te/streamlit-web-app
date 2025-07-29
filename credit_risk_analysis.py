@@ -35,7 +35,7 @@ credits_df.head()
 credits_df.dropna(inplace=True)
 credits_df.info()
 
-credits_df.to_csv('/credit-risk.tar.gz',index=False)
+credits_df.to_csv('/credit-risk.csv',compression='gzip',index=False)
 
 
 
@@ -43,7 +43,7 @@ import plotly.express as px, pydeck as pdk, pingouin as pg
 import ipywidgets as widgets, scipy.stats as stats,re
 from sklearn.preprocessing import OneHotEncoder
 
-countries_df = pd.read_csv('/countries.tar.gz',compression='gzip')[['name','alpha-2']]
+countries_df = pd.read_csv('/countries.csv',compression='gzip')[['name','alpha-2']]
 cities_df = pd.read_csv('/world-cities.tar.txt',low_memory=False,compression='gzip')[['City','Country','Latitude','Longitude']]
 
 cities_df.head()
