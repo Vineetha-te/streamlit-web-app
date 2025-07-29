@@ -87,14 +87,14 @@ else:
                     company_locations,
                     get_position=['Latitude','Longitude'],
                     extruded = True,
-                    elevation_scale =100,
+                    elevation_scale =200,
                     elevation_range=[0,5000],
                     pickable = True,
                     coverage = 3,
                     auto_highlight = True
 
                     )
-   view_state = pdk.ViewState(longitude=7,latitude=43,zoom=4,pitch=40.5,bearing=16)
-   fig = pdk.Deck(layers=[layer],initial_view_state=view_state,map_style='mapbox://styles/mapbox/light-v10')
+   view_state = pdk.ViewState(longitude=8.2,latitude=46.2,zoom=2,pitch=40.5,bearing=16)
+   fig = pdk.Deck(layers=[layer],initial_view_state=view_state)
    st.pydeck_chart(fig)
 
