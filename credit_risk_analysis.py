@@ -37,7 +37,7 @@ credits_df.head()
 credits_df.dropna(inplace=True)
 credits_df.info()
 with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as tmp:
-credits_df.to_csv(tmp.name,index=False)
+ credits_df.to_csv(tmp.name,index=False)
 
 
 
