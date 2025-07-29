@@ -42,7 +42,7 @@ with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as tmp:
 
 
 import plotly.express as px, pydeck as pdk, pingouin as pg
-import ipywidgets as widgets, scipy.stats as stats,re
+import scipy.stats as stats
 from sklearn.preprocessing import OneHotEncoder
 
 countries_df = pd.read_csv('/countries.tar.gz')[['name','alpha-2']]
