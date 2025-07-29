@@ -45,8 +45,8 @@ import plotly.express as px, pydeck as pdk, pingouin as pg
 import scipy.stats as stats
 from sklearn.preprocessing import OneHotEncoder
 
-countries_df = pd.read_csv('/countries.txt')[['name','alpha-2']]
-cities_df = pd.read_csv('/world-cities-file.txt',low_memory=False)[['City','Country','Latitude','Longitude']]
+countries_df = pd.read_csv('countries.txt')[['name','alpha-2']]
+cities_df = pd.read_csv('world-cities-file.txt',low_memory=False)[['City','Country','Latitude','Longitude']]
 
 cities_df.head()
 
