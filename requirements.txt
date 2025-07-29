@@ -1,5 +1,6 @@
 streamlit
-pandas
+pandas>=2.0.0
+openpyxl>=3.0.0
 numpy
 matplotlib
 seaborn
@@ -8,5 +9,4 @@ plotly
 pydeck
 pingouin
 scipy
-openpyxl
-tarfile
+
