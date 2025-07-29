@@ -29,7 +29,7 @@ credits_df.shape
 
 credits_df.describe()
 
-# credits_df.drop('No',inplace=True,axis=1)
+credits_df.drop('No',inplace=True,axis=1)
 credits_df.head()
 
 credits_df.dropna(inplace=True)
@@ -37,9 +37,7 @@ credits_df.info()
 
 credits_df.to_csv('/credit-risk.tar.gz',index=False)
 
-# !pip install pingouin
-# !pip install pydeck
-# !pip install utils
+
 
 import plotly.express as px, pydeck as pdk, pingouin as pg
 import ipywidgets as widgets, scipy.stats as stats,re
@@ -66,10 +64,8 @@ company_locations.head()
 company_locations['Latitude']+= np.random.normal(0,0.03,len(company_locations))
 company_locations['Longitude']+= np.random.normal(0,0.03,len(company_locations))
 
-#visualizing using widget
-# !pip install streamlit
-# from IPython.display import display
-# !jupyter nbextension enable --py widgetsnbextension
+# visualizing using widget
+
 import streamlit as st
 
 st.set_page_config(page_title='Credit Risk Analysis',layout='wide')
