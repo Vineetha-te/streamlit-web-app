@@ -36,7 +36,7 @@ credits_df.head()
 
 credits_df.dropna(inplace=True)
 credits_df.info()
-with tempfile.NamedTemporaryFile(delete=False, suffix='.csv') as tmp:
+with tempfile.NamedTemporaryFile(delete=False,prefix='Cleaned', suffix='.csv') as tmp:
  credits_df.to_csv(tmp.name,index=False)
 
 
@@ -45,7 +45,7 @@ import plotly.express as px, pydeck as pdk, pingouin as pg
 import scipy.stats as stats
 from sklearn.preprocessing import OneHotEncoder
 
-countries_df = pd.read_csv('/countries.tar.gz')[['name','alpha-2']]
+countries_df = pd.read_csv('/countries.txt')[['name','alpha-2']]
 cities_df = pd.read_csv('/world-cities-file.txt',low_memory=False)[['City','Country','Latitude','Longitude']]
 
 cities_df.head()
