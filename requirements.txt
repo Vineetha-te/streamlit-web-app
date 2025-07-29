@@ -9,3 +9,4 @@ pydeck
 pingouin
 scipy
 openpyxl
+tarfile
